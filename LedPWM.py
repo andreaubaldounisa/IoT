@@ -13,6 +13,7 @@ class LedPWM:
         """!
         @brief Costruttore di un Led da gestire col PWM
         @param[in] pin Pin dell'ESP32 cui è collegato il Led
+        @pre pin Deve essere un pin esistente dell'ESP32 con PWM e adatto all'output digitale
         """
         self.led = PWM(Pin(pin,Pin.OUT))
         self.led.freq(5000) #Frequenza operativa del led per evitare sfarfalli e sprechi energetici
@@ -38,6 +39,7 @@ class LedPWM:
         @param[in] time Quanto tempo il led deve rimanere acceso in ms
         @param[in] k Quanti lampeggi far fare al led
         @pre duty Deve essere compreso tra 0 e 1023
+        @pre time Deve essere >= 0
         """
         for i in range(k):
             self.on(duty)

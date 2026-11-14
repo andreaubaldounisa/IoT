@@ -13,6 +13,7 @@ class Led:
         """!
         @brief Inizializza un led associato ad un pin di GPIO
         @param[in] pin Pin di GPIO cui è collegato il led
+        @pre pin Deve essere un pin esistente dell'ESP32 adatto all'output digitale
         """
         self.led = Pin(pin,Pin.OUT)
     
@@ -34,6 +35,7 @@ class Led:
         @brief Fa lampeggiare per k volte il led. Il tempo di accessione è di time ms
         @param[in] time Tempo di on in ms
         @param[in] k (int) Il numero di lampeggi da fare.
+        @pre time Deve essere >= 0
         """
         for i in range(k):
             self.on()

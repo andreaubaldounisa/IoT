@@ -15,6 +15,7 @@ class Btn:
         @brief Costruisce un pulsante.
         @param[in] pin Pin a cui è collegato il pulsante
         @param[in] pull_down Facoltativo, indica se usare le resistenze (interne) di PullDown o PullUp 
+        @pre pin Deve essere un pin esistente dell'ESP32 adatto alla lettura digitale
         """
         self.stato = False
         self.last = ticks_ms()
